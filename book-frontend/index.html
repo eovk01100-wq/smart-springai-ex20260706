@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>도서 관리 Frontend</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="page-header">
+        <div>
+          <h1>도서 관리</h1>
+          <p>Spring Boot CRUD API와 연동하는 Frontend 실습</p>
+        </div>
+        <button id="reloadButton" type="button">목록 새로고침</button>
+      </header>
+
+      <main class="layout">
+        <section class="card form-card">
+          <h2>도서 입력</h2>
+
+          <form id="bookForm">
+            <input type="hidden" id="bookId" />
+
+            <label for="title">도서명</label>
+            <input id="title" type="text" placeholder="예: 스프링 부트 입문" required />
+
+            <label for="author">저자</label>
+            <input id="author" type="text" placeholder="예: 홍길동" required />
+
+            <label for="price">가격</label>
+            <input id="price" type="number" min="0" placeholder="예: 30000" required />
+
+            <label for="publishedYear">출간연도</label>
+            <input id="publishedYear" type="number" min="1900" placeholder="예: 2026" required />
+
+            <div class="button-group">
+              <button id="submitButton" type="submit">등록</button>
+              <button id="resetButton" type="button" class="secondary">초기화</button>
+            </div>
+          </form>
+
+          <p id="message" class="message"></p>
+        </section>
+
+        <section class="card table-card">
+          <h2>도서 목록</h2>
+
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>도서명</th>
+                <th>저자</th>
+                <th>가격</th>
+                <th>출간연도</th>
+                <th>관리</th>
+              </tr>
+            </thead>
+            <tbody id="bookTableBody">
+              <tr>
+                <td colspan="6">도서 목록을 불러오는 중입니다.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
